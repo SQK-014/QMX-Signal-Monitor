@@ -69,6 +69,10 @@ namespace QMX_S_Meter_01.UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // ★ Panelのダブルバッファリングを有効化してちらつきを防止
+            SetDoubleBuffered(panelSM);
+            SetDoubleBuffered(panelSA);
+
             // ★ Load ではUI部品の初期化のみ行い、
             //    接続試行やダイアログ表示は一切しない(UI表示をブロックしないため)
             smRenderer = new SmMeterRenderer(smModel);
@@ -79,6 +83,17 @@ namespace QMX_S_Meter_01.UI
 
             panelSA.Paint += (s, ev) =>
                 saRenderer.Render(ev.Graphics, panelSA.ClientRectangle);
+        }
+
+        // ★ Panel等、標準ではDoubleBufferedプロパティが非公開のコントロールに
+        //   対してリフレクション経由で有効化する(ちらつき防止)
+        private void SetDoubleBuffered(Control control)
+        {
+            typeof(Control).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null, control, new object[] { true });
         }
 
         private void Form1_Shown(object sender, EventArgs e)
