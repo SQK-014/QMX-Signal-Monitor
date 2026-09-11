@@ -4,6 +4,8 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net10.0-windows</TargetFramework>
     <RootNamespace>QMX_S_Meter_01</RootNamespace>
+    <AssemblyName>QMX Signal Monitor</AssemblyName>
+    <ApplicationIcon>S Meter.ico</ApplicationIcon>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -11,6 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.IO.Ports" Version="11.0.0-preview.7.26381.103" />
+    <PackageReference Include="System.Management" Version="11.0.0-rc.1.26425.128" />
   </ItemGroup>
 
   <ItemGroup>

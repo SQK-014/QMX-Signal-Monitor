@@ -32,7 +32,7 @@ namespace QMX__S_Meter_01.Cat
         public string Send(string cmd)
         {
             if (!_port.IsOpen)
-                throw new InvalidOperationException("CATポートが開いていません。");
+                throw new InvalidOperationException("CAT port is not open.");
 
             _port.Write(cmd);
 

@@ -25,7 +25,7 @@ namespace QMX_S_Meter_01.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ComPort {
             get {
                 return ((string)(this["ComPort"]));

@@ -5,6 +5,7 @@
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Panel panelSM;
         private System.Windows.Forms.Panel panelSA;
+        private System.Windows.Forms.Label lblAgc;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnAgcZeroCal;
         private System.Windows.Forms.Timer timer1;
@@ -23,9 +24,11 @@
             components = new System.ComponentModel.Container();
             panelSM = new Panel();
             panelSA = new Panel();
+            lblAgc = new Label();
             btnSettings = new Button();
             btnAgcZeroCal = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
+            panelSA.SuspendLayout();
             SuspendLayout();
             // 
             // panelSM
@@ -38,11 +41,24 @@
             // 
             // panelSA
             // 
+            panelSA.Controls.Add(lblAgc);
             panelSA.Location = new Point(15, 77);
             panelSA.Margin = new Padding(4);
             panelSA.Name = "panelSA";
             panelSA.Size = new Size(430, 50);
             panelSA.TabIndex = 1;
+            // 
+            // lblAgc
+            // 
+            lblAgc.AutoSize = true;
+            lblAgc.BackColor = Color.Transparent;
+            lblAgc.Font = new Font("Consolas", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAgc.ForeColor = Color.White;
+            lblAgc.Location = new Point(20, 2);
+            lblAgc.Name = "lblAgc";
+            lblAgc.Size = new Size(28, 15);
+            lblAgc.TabIndex = 0;
+            lblAgc.Text = "AGC";
             // 
             // btnSettings
             // 
@@ -82,8 +98,10 @@
             Controls.Add(panelSM);
             Margin = new Padding(4);
             Name = "Form1";
-            Text = "QMX+ S Meter";
+            Text = "QMX Signal Monitor";
             Load += Form1_Load;
+            panelSA.ResumeLayout(false);
+            panelSA.PerformLayout();
             ResumeLayout(false);
         }
     }
